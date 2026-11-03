@@ -55,3 +55,40 @@ Both specialist CNNs were initially trained for 10 epochs with a batch size of 3
 
 Both CNN models were trained and evaluated using validation accuracy and loss to monitor their performance. The training curves show how each model's performance changed across epochs.
 
+### Lung and colon: test results
+
+| Metric | Lung CNN | Colon CNN |
+|---|---:|---:|
+| Test images | 224 | 224 |
+| Test accuracy | **86.16%** | **86.61%** |
+| Test loss | 0.3321 | 0.3091 |
+| Number of classes | 3 | 2 |
+
+| Lung CNN — confusion matrix | Colon CNN — confusion matrix |
+|:---:|:---:|
+| ![Lung CNN confusion matrix](attachment:lung-confusion-matrix.png) | ![Colon CNN confusion matrix](attachment:colon-confusion-matrix.png) |
+
+- Adenocarcinoma (lung_aca): 58 of 74 images were correctly classified. The model confused 14 adenocarcinoma images with squamous cell carcinoma.
+Normal (lung_n): 70 of 75 images were correctly classified: This is the best-performing class. Squamous Cell Carcinoma (lung_scc): 65 of 75 images were correctly classified. 
+- As regards the Colon model, TRUE POSITIVE (TP) 92 cancer correctly classified as cancer, FALSE NEGATIVE (FN) 20 cancer incorrectly classified as benign, FALSE POSITIVE (FP) 10 benign incorrectly classified as cancer, TRUE NEGATIVE (TN) 102 benign correctly classified as benign tissue.
+
+**Lung classification report**
+
+| Class | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| `lung_aca` | 0.7945 | 0.7838 | 0.7891 | 74 |
+| `lung_n` | 0.9722 | 0.9333 | 0.9524 | 75 |
+| `lung_scc` | 0.8228 | 0.8667 | 0.8442 | 75 |
+| **Accuracy** | | | **0.8616** | **224** |
+| Macro avg | 0.8632 | 0.8613 | 0.8619 | 224 |
+| Weighted avg | 0.8635 | 0.8616 | 0.8622 | 224 |
+
+**Colon classification report**
+
+| Class | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| `colon_aca` | 0.9020 | 0.8214 | 0.8598 | 112 |
+| `colon_n` | 0.8361 | 0.9107 | 0.8718 | 112 |
+| **Accuracy** | | | **0.8661** | **224** |
+| Macro avg | 0.8690 | 0.8661 | 0.8658 | 224 |
+| Weighted avg | 0.8690 | 0.8661 | 0.8658 | 224 |
