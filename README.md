@@ -44,5 +44,13 @@ The original datasets contained **3,400 images**. After removing **25 duplicate 
 
 <img width="970" height="505" alt="image" src="https://github.com/user-attachments/assets/7d38ee52-ae6d-4de9-87b6-3770dfe870be" />
 
+### Lung and Colon Models Training and Validation Results:
 
+Both specialist CNNs were initially trained for 10 epochs with a batch size of 32. The colon model was trained further with early stopping and checkpointing.
+
+| Lung CNN — training and validation accuracy | Colon CNN — training and validation accuracy |
+|:---:|:---:|
+| ![Lung CNN training accuracy plot](attachment:lung-training-accuracy.png) | ![Colon CNN training accuracy plot](attachment:colon-training-accuracy.png) |
+
+Both CNN models were trained and evaluated using validation accuracy and loss to monitor their performance. The training curves show how each model's performance changed across epochs.
 
