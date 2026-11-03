@@ -92,3 +92,31 @@ Normal (lung_n): 70 of 75 images were correctly classified: This is the best-per
 | **Accuracy** | | | **0.8661** | **224** |
 | Macro avg | 0.8690 | 0.8661 | 0.8658 | 224 |
 | Weighted avg | 0.8690 | 0.8661 | 0.8658 | 224 |
+
+### Breast classification: baseline CNN versus transfer learning
+
+The breast dataset contains **400 TIFF images**, evenly divided across four classes (100 per class). The custom CNN reached a maximum reported validation accuracy of **50%**. Transfer learning with **MobileNetV2** improved the best reported validation accuracy to **76.67%**, a gain of **26.67 percentage points**.
+
+| Breast model | Best reported validation accuracy | Test accuracy | Test loss |
+|---|---:|---:|---:|
+| Custom CNN baseline | 50.00% | - | - |
+| MobileNetV2 | 76.67% | **73.33%** | 0.6665 |
+
+<img width="921" height="640" alt="image" src="https://github.com/user-attachments/assets/76349e79-7168-4d82-862a-3f8a692a9015" />
+
+- Invasive carcinoma is the best-recognized class: The model correctly identifies 12 out of 15 invasive carcinoma images.
+- Normal tissue is the most difficult class: The model correctly identifies only 10 out of 15 normal tissue images.
+- The model sometimes confuses benign tissue with carcinoma in situ: Four benign images were incorrectly classified as carcinoma in situ.
+- Some cancer images are classified as normal.
+
+**Breast MobileNetV2 classification report**
+
+| Class | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| `breast_ben` | 0.7333 | 0.7333 | 0.7333 | 15 |
+| `breast_insi` | 0.5789 | 0.7333 | 0.6471 | 15 |
+| `breast_inv` | 0.9231 | 0.8000 | 0.8571 | 15 |
+| `breast_n` | 0.7692 | 0.6667 | 0.7143 | 15 |
+| **Accuracy** | | | **0.7333** | **60** |
+| Macro avg | 0.7511 | 0.7333 | 0.7380 | 60 |
+| Weighted avg | 0.7511 | 0.7333 | 0.7380 | 60 |
