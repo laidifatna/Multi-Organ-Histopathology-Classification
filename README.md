@@ -65,8 +65,9 @@ Both CNN models were trained and evaluated using validation accuracy and loss to
 | Number of classes | 3 | 2 |
 
 | Lung CNN — confusion matrix | Colon CNN — confusion matrix |
-|:---:|:---:|
-| ![Lung CNN confusion matrix](attachment:lung-confusion-matrix.png) | ![Colon CNN confusion matrix](attachment:colon-confusion-matrix.png) |
+
+<img width="1282" height="481" alt="image" src="https://github.com/user-attachments/assets/983b8b84-96b9-449d-a58e-814553e76fc5" />
+
 
 - Adenocarcinoma (lung_aca): 58 of 74 images were correctly classified. The model confused 14 adenocarcinoma images with squamous cell carcinoma.
 Normal (lung_n): 70 of 75 images were correctly classified: This is the best-performing class. Squamous Cell Carcinoma (lung_scc): 65 of 75 images were correctly classified. 
