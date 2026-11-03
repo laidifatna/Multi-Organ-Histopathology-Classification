@@ -103,7 +103,7 @@ The breast dataset contains **400 TIFF images**, evenly divided across four clas
 | Custom CNN baseline | 50.00% | - | - |
 | MobileNetV2 | 76.67% | **73.33%** | 0.6665 |
 
-<img width="921" height="640" alt="image" src="https://github.com/user-attachments/assets/76349e79-7168-4d82-862a-3f8a692a9015" />
+<img width="427" height="325" alt="image" src="https://github.com/user-attachments/assets/9cb90456-74a0-4e77-b54f-02618ae0808c" />
 
 - Invasive carcinoma is the best-recognized class: The model correctly identifies 12 out of 15 invasive carcinoma images.
 - Normal tissue is the most difficult class: The model correctly identifies only 10 out of 15 normal tissue images.
