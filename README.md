@@ -43,4 +43,5 @@ The original datasets contained **3,400 images**. After removing **25 duplicate 
 | Lung image resizing example |
  ![Lung histology image before and after resizing](attachment:lung-image-resizing.png)
 
+<img width="970" height="505" alt="image" src="https://github.com/user-attachments/assets/7d38ee52-ae6d-4de9-87b6-3770dfe870be" />
 
