@@ -121,3 +121,70 @@ The breast dataset contains **400 TIFF images**, evenly divided across four clas
 | **Accuracy** | | | **0.7333** | **60** |
 | Macro avg | 0.7511 | 0.7333 | 0.7380 | 60 |
 | Weighted avg | 0.7511 | 0.7333 | 0.7380 | 60 |
+
+### The three models' performance summary
+
+| Model | Architecture | Classes | Test accuracy |
+|---|---|---:|---:|
+| Lung classification | Custom CNN | 3 | **86.16%** |
+| Colon classification | Custom CNN | 2 | **86.61%** |
+| Breast classification | MobileNetV2 | 4 | **73.33%** |
+
+## 3. Notebook 2 — Automatic tissue type classification
+
+This notebook combines the prepared lung, colon and breast datasets to train a **three-class MobileNetV2** tissue identifier. Images are read through a pipeline supporting JPEG and TIFF, resized for the model and organized into TensorFlow batches.
+
+### Class imbalance
+
+There were fewer breast training images, so the model used **class weights** rather than duplicating samples.
+
+| Tissue | Training images | Class weight |
+|---|---:|---:|
+| Breast | 280 | 2.8107 |
+| Colon | 1,041 | 0.7560 |
+| Lung | 1,040 | 0.7567 |
+
+### Tissue identification: test results
+
+| Metric | Result |
+|---|---:|
+| Model | MobileNetV2 |
+| Classes | 3 (breast, colon, lung) |
+| Test images | 508 |
+| Correctly classified | 505 |
+| Test accuracy | **99.41%** |
+| Test loss | 0.0183 |
+
+<img width="762" height="567" alt="image" src="https://github.com/user-attachments/assets/80065583-ea8a-415b-b6ab-d007e771c355" />
+
+Confusion matrix confirms that only 3 out of 508 test images were incorrectly classified.
+
+**Tissue type classification report**
+
+| Class | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| `breast` | 1.0000 | 1.0000 | 1.0000 | 60 |
+| `colon` | 0.9911 | 0.9955 | 0.9933 | 224 |
+| `lung` | 0.9955 | 0.9911 | 0.9933 | 224 |
+| **Accuracy** | | | **0.9941** | **508** |
+| Macro avg | 0.9955 | 0.9955 | 0.9955 | 508 |
+| Weighted avg | 0.9941 | 0.9941 | 0.9941 | 508 |
+
+All 60 breast samples were correctly classified. The model misclassified one colon image as lung and two lung images as colon. Additionally, there were no overlapping file paths between the training, validation, and test sets.
+
+All four trained models were saved and used to deploy an application.
+
+## 4. Conclusion
+
+This project demonstrates dataset cleaning, preprocessing, CNN training, transfer learning, class-imbalance handling and evaluation of histopathological image classifiers. The specialist models achieved **86.16%** accuracy for lung, **86.61%** for colon and **73.33%** for breast classification. The separate tissue identifier achieved **99.41%** accuracy on its test set.
+
+These results provide a foundation for a two-stage application that first recognizes the tissue and then selects the appropriate specialist classifier. Further validation, especially on independent patient-level data, is needed before making broader claims about reliability.
+
+> **Disclaimer:** This is an educational deep learning project. The models are not clinically validated and must not be used for medical diagnosis or treatment decisions.
+>
+> ## 5. Link to App
+
+[Open the Streamlit application](https://multi-organ-histopathology.streamlit.app/)
+
+<img width="942" height="676" alt="image" src="https://github.com/user-attachments/assets/b6a014a3-c19b-44ee-b106-748ab24d81a3" />
+
